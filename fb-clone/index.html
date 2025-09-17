@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Facebook Clone</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="topbar" role="banner">
+        <div class="topbar-left">
+            <button class="icon-button" aria-label="Open navigation" aria-controls="left-sidebar" aria-expanded="false">☰</button>
+            <a href="#" class="brand" aria-label="Home">f</a>
+            <label class="search" aria-label="Search">
+                <input type="search" id="search" placeholder="Search Facebook" aria-label="Search Facebook">
+            </label>
+        </div>
+        <nav class="topbar-center" aria-label="Primary">
+            <button class="tab active" aria-pressed="true">Home</button>
+            <button class="tab">Friends</button>
+            <button class="tab">Watch</button>
+            <button class="tab">Marketplace</button>
+            <button class="tab">Groups</button>
+        </nav>
+        <div class="topbar-right">
+            <button class="icon-button" aria-label="Create">＋</button>
+            <button class="icon-button" aria-label="Messenger">💬</button>
+            <button class="icon-button" aria-label="Notifications">🔔</button>
+            <button class="avatar" aria-label="Account menu" aria-haspopup="menu">JD</button>
+        </div>
+    </header>
+
+    <main class="layout" role="main">
+        <aside id="left-sidebar" class="sidebar left" aria-label="Navigation">
+            <ul>
+                <li><a href="#">John Doe</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">Groups</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Watch</a></li>
+                <li><a href="#">Memories</a></li>
+                <li><a href="#">Saved</a></li>
+            </ul>
+        </aside>
+
+        <section class="feed">
+            <div class="composer" aria-label="Create post">
+                <div class="composer-top">
+                    <div class="avatar">JD</div>
+                    <input id="post-input" type="text" placeholder="What's on your mind, John?" aria-label="Create a post">
+                </div>
+                <div class="composer-actions">
+                    <button id="post-button" class="primary">Post</button>
+                    <label class="media-button">
+                        <input type="file" id="media-input" accept="image/*" aria-label="Add photo" hidden>
+                        Add Photo
+                    </label>
+                </div>
+            </div>
+
+            <div id="feed-list" class="feed-list" aria-live="polite"></div>
+        </section>
+
+        <aside class="sidebar right" aria-label="Contacts">
+            <h2 class="sr-only">Contacts</h2>
+            <ul class="contacts">
+                <li><button class="contact"><span class="presence online"></span>Jane Smith</button></li>
+                <li><button class="contact"><span class="presence online"></span>Mike Johnson</button></li>
+                <li><button class="contact"><span class="presence"></span>Emily Chen</button></li>
+                <li><button class="contact"><span class="presence"></span>Priya Patel</button></li>
+            </ul>
+        </aside>
+    </main>
+
+    <template id="post-template">
+        <article class="post">
+            <header class="post-header">
+                <div class="avatar small">JD</div>
+                <div class="post-meta">
+                    <div class="author">John Doe</div>
+                    <div class="time" data-time></div>
+                </div>
+            </header>
+            <div class="post-content" data-content></div>
+            <img class="post-image" data-image alt="" hidden>
+            <footer class="post-footer">
+                <div class="reactions">
+                    <button class="like-button" data-like>Like</button>
+                    <button class="comment-button" data-toggle-comments>Comment</button>
+                </div>
+                <div class="counts">
+                    <span data-like-count>0</span> likes · <span data-comment-count>0</span> comments
+                </div>
+                <div class="comments" hidden>
+                    <div class="comment-input">
+                        <input type="text" placeholder="Write a comment..." data-comment-input>
+                        <button data-add-comment>Add</button>
+                    </div>
+                    <ul class="comment-list" data-comment-list></ul>
+                </div>
+            </footer>
+        </article>
+    </template>
+
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>
